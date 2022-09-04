@@ -7,29 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{config('app.name')}} | @yield('title')</title>
     <link rel="stylesheet" type="text/css" href="{{asset('/site/css/reset.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('/site/bootstrap/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('/site/css/stylemain.css')}}" />
 </head>
 
-<body>
+<body class="">
     <!-- CABEÇALHO -->
-    <header class="cabecalho">
-        <a href="#"><img src="{{asset('site/img/LOGO.png')}}" alt="logotipo" id="logo"></a>
-        <nav>
-
-            <div class="mobile-menu">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
+    <header class="cabecalho container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-12">
+                <a href="#"><img src="{{asset('site/img/LOGO.png')}}" alt="logotipo" id="logo"></a>
             </div>
+            <div class="col-md-9 col-12">
+                <nav>
+                    <ul class="nav-list">
+                        <li><a href="#">INÍCIO</a></li>
+                        <li><a href="#" onclick="rolar_para('#sorteios')">SORTEIOS</a></li>
+                        <li><a href="#">BILHETES</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
 
-            <ul class="nav-list">
-                <li><a href="#">INÍCIO</a></li>
-                <li><a href="#">SORTEIOS</a></li>
-                <li><a href="#">BILHETES</a></li>
-            </ul>
-
-
-        </nav>
 
     </header>
     <!-- CONTEÚDO -->
@@ -43,7 +43,7 @@
         <section class="instrucoes">
             <div class="step">
                 <div class="step-icon">
-                    <img src="./img/trofeu_icon.png" alt="icone trofeu">
+                    <img src="{{asset('site/img/trofeu_icon.png')}}" alt="icone trofeu">
                 </div>
                 <div class="step-content">
                     <h3>Escolha um Prêmio</h3>
@@ -52,7 +52,7 @@
             </div>
             <div class="step">
                 <div class="step-icon">
-                    <img src="./img/ticket_icon.png" alt="icone trofeu">
+                    <img src="{{asset('site/img/ticket_icon.png')}}" alt="icone trofeu">
                 </div>
                 <div class="step-content">
                     <h3>Gere seus Números</h3>
@@ -61,7 +61,7 @@
             </div>
             <div class="step">
                 <div class="step-icon">
-                    <img src="./img/card_icon.png" alt="icone trofeu">
+                    <img src="{{asset('site//img/card_icon.png')}}" alt="icone trofeu">
                 </div>
                 <div class="step-content">
                     <h3>Faça o Pagamento</h3>
@@ -70,7 +70,7 @@
             </div>
             <div class="step">
                 <div class="step-icon">
-                    <img src="./img/feliz_icon.png" alt="icone trofeu">
+                    <img src="{{asset('site//img/feliz_icon.png')}}" alt="icone trofeu">
                 </div>
                 <div class="step-content">
                     <h3>Aguarde o Sorteio</h3>
@@ -93,12 +93,12 @@
                 </ul>
                 <br>
                 <h3>Site blindado</h3>
-                <img src="./img/compraprotegida.png">
-                <img src="./img/googlesecure.png">
+                <img src="{{asset('site/img/compraprotegida.png')}}">
+                <img src="{{asset('site/img/googlesecure.png')}}">
             </div>
             <div>
                 <h3>Formas de pagamento</h3>
-                <img src="./img/formasdepagamento.png" id="forma-de-pagamento-banner">
+                <img src="{{asset('site/img/formasdepagamento.png')}}" id="forma-de-pagamento-banner">
             </div>
 
         </section>
@@ -108,6 +108,8 @@
     </footer>
 
 
+    <script src="{{asset('site/plugins/jquery/jquery-3.6.1.min.js')}}"></script>
+    <script src="{{asset('site/plugins/dosite/functions.js')}}"></script>
 </body>
 
 </html>

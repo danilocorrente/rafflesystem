@@ -7,7 +7,7 @@ body, button {
 }
 .cabecalho {
    background-color: #233527; 
-   display: flex;
+   /* display: flex; */
    align-items: center;
    justify-content: space-around;
 }
@@ -159,15 +159,14 @@ nav {
     background-color: var(--acent-color);
     font-size: 20px;
     width: 30%;
-    font-weight: 800;
-    padding: 10px;
+    top: 10px;
+    /* font-weight: 800; */
+    /* padding: 10px; */
     border-radius: 10px;
-    position: relative;
-    bottom: -60px;
+    position: absolute;
     margin-left: 20px;
-    color: white;
-    
-    z-index: 100 !important;
+    /* color: white; */
+    /* z-index: 100 !important; */
 }
 
 

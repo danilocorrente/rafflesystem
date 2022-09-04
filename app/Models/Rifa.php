@@ -19,4 +19,16 @@ class Rifa extends Model
         $this->attributes['imagens_sorteio'] = implode(',', $value);
     }
 
+    public function rifasAtivas(){
+
+        return $this->where("status_rifa","ativa")->get();
+
+    }
+    public function rifasEncerradas(){
+
+        return $this->whereIn("status_rifa",["finalizada","apurando"])->get();
+
+    }
+
+
 }
