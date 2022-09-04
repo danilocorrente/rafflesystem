@@ -13,4 +13,6 @@ use App\Http\Controllers\SiteController;
 |
 */
 
-Route::get('/', [SiteController::class, 'index']);
+Route::get('/', [SiteController::class, 'index'])->name("home");
+Route::get('/regulamento', [SiteController::class, 'regulamento'])->name("regulamento");
+Route::get('/termos-de-uso', [SiteController::class, 'termos'])->name("termos");

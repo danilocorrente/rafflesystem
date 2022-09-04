@@ -87,6 +87,7 @@ class RifaController extends AdminController
         } else {
             $form->select('forma_da_rifa', __('Forma da rifa'))->options(['1' => 'a', 2 => '2'])->disable();
             $form->display('fim_de_cotas', __('Limite de cotas Vendida'));
+            $form->ignore('forma_da_rifa');
         }
 
         $form->multipleImage('imagens_sorteio', __('Imagens do sorteio'))->uniqueName()->sortable()->removable()->rules(function ($form) {

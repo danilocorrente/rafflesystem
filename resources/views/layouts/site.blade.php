@@ -16,12 +16,12 @@
     <header class="cabecalho container-fluid">
         <div class="row">
             <div class="col-md-3 col-12">
-                <a href="#"><img src="{{asset('site/img/LOGO.png')}}" alt="logotipo" id="logo"></a>
+                <a href="{{route('home')}}"><img src="{{asset('site/img/LOGO.png')}}" class="img-fluid" alt="logotipo" id="logo"></a>
             </div>
             <div class="col-md-9 col-12">
                 <nav>
                     <ul class="nav-list">
-                        <li><a href="#">INÍCIO</a></li>
+                        <li><a href="{{route('home')}}">INÍCIO</a></li>
                         <li><a href="#" onclick="rolar_para('#sorteios')">SORTEIOS</a></li>
                         <li><a href="#">BILHETES</a></li>
                     </ul>
@@ -82,8 +82,8 @@
             <div>
                 <h3>Institucional</h3>
                 <ul>
-                    <li><a href="#">Regulamento</a></li>
-                    <li><a href="#">Termos & condições</a></li>                
+                    <li><a href="{{route('regulamento')}}">Regulamento</a></li>
+                    <li><a href="{{route('termos')}}">Termos & condições</a></li>                
                 </ul>
             </div>
             <div>
