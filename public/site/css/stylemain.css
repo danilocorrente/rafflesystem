@@ -1,0 +1,584 @@
+body, button {
+    font-family: poppins;
+}
+
+:root {
+    --acent-color: #26a744;
+}
+.cabecalho {
+   background-color: #233527; 
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+
+a {
+    color: #FFFF;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: Poppins;
+    height: 8vh;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+}
+
+.nav-list li + li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+
+#logo {
+    margin: 10px;
+    max-height: 50px;
+    transition: .3s;
+}
+
+#logo:hover {
+   transform: scale(1.1);
+}
+.mobile-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.mobile-menu div {
+    width: 32px;
+    height: 2px;
+    background: white;
+    margin: 8px;
+}
+
+.slide {
+    width: 100%;
+}
+
+
+.sorteio-ativos {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    }
+
+ .sorteio-inativos {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        background-color: rgb(238, 238, 238);
+        }
+
+.title-section {
+    text-align: center;
+}
+.headline-default {
+    font-family: Poppins;
+    font-weight: 800;
+    font-size: 40px;
+    color: #233527;
+    margin-bottom: 20px;
+}
+
+.sub-headline {
+    font-family: Poppins;
+    font-weight: medium;
+    font-size: 18px;
+    color: #233527;
+    margin-bottom: 30px;
+}
+
+
+.container-sorteios {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+    max-width: 1200px;
+}
+
+
+@media screen and (max-width: 900px) {
+    .container-sorteios {
+        flex-wrap: wrap;
+}
+    #logo {
+        height: 20px;
+    }
+}
+
+.container-sorteios > div {
+    flex: 1 1 150px;
+}
+
+
+/* AQUI COMEÇA A ESTILIZAÇÃO DOS CARDS DE LOOP */
+
+.nome-produto-ativo {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    
+}
+
+.sub-headline-lance-atual {
+    font-weight: regular;
+    font-size: 18px;
+    line-height: 1.5em;
+    margin-bottom: 20px;
+}
+
+.btn-comprar-cota {
+    background-color: var(--acent-color);
+    color: white;
+    font-size: 24px;
+    border: none;
+    font-weight: 800;
+    padding: 15px 20px 15px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 100%;
+    line-height: 1em;
+    transition: 0.5s;
+}
+
+.btn-comprar-cota:hover {
+    transform: scale(1.1);
+}
+
+.valor-lance-atual {
+    background-color: var(--acent-color);
+    font-size: 20px;
+    width: 30%;
+    font-weight: 800;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    bottom: -60px;
+    margin-left: 20px;
+    color: white;
+    
+    z-index: 100 !important;
+}
+
+
+.lance-ativo {
+    background-color: #282828;
+    margin: 10px;
+    padding: 0px;
+}
+
+.img-destaque-lance {
+    width: 100%;
+   
+    
+}
+
+.lance-ativo div {
+    padding: 10px !important;
+    color: white;
+}
+
+
+
+/* AQUI COMEÇA O RODAPÉ */
+
+.rodape {
+    background-color: #0d1118;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.instrucoes {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+@media screen and (max-width: 900px) {
+    .instrucoes {
+        flex-wrap: wrap;
+} 
+    .step {
+        width: 100%;
+    }
+    .rodape {
+        padding: 15px 10px 15px 10px;
+    }
+}
+
+.step {
+    background-color: #212931;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    
+}
+
+.step-icon {
+      margin-right: 10px;
+}
+
+.step-icon > img {
+    max-height: 70px !important;
+}
+
+.step-content {
+      color: white;
+}
+
+.step-content > h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.step-content > p {
+    font-size: 16px;
+    font-weight: regular;
+}
+.rodape h4 {
+    color: white;
+    font-size: 18px;
+    font-family: poppins;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.sub-menus-rodape h3 {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.sub-menus-rodape li {
+    list-style: none;
+    line-height: 1.2em;
+}
+
+.sub-menus-rodape {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+@media screen and (max-width: 900px) {
+    .sub-menus-rodape {
+        flex-wrap: wrap;
+        width: 100%;
+} }
+
+.sub-menus-rodape > div {
+    margin: 10px;
+    padding: 10px;
+}
+
+/* REGULAMENTO COMPONENTES */
+
+.regulamento {
+    margin: 0 AUTO;
+    max-width: 1200px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.regulamento > h2 {
+    font-weight: 700;
+    color: #212931;
+}
+
+.regulamento > p {
+    line-height: 1.2em;
+}
+
+@media screen and (max-width: 900px) {
+    .regulamento {
+        padding: 30px 10px 30px 10px;
+} }
+
+/* TERMOS DE USO */
+
+#cabecalho-termosdeuso > h1 {
+    text-align: center;
+}
+
+.termosdeuso {
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    max-width: 1200px;
+}
+
+.termosdeuso > h2 {
+    font-weight: 700;
+    color: #212931;
+}
+
+@media screen and (max-width: 900px) {
+    .termosdeuso {
+        padding: 30px 10px 30px 10px;
+} }
+
+
+/* SORTEIO OBJETO */
+
+.objeto-body-loop {
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    max-width: 1200px;
+    display: flex;
+    
+}
+.col1 {
+    margin: 0 auto;
+    width: 60%;
+    padding: 5px 10px 5px 10px;
+    align-items: center;
+}
+
+.col2 {
+    width: 40%;
+    padding: 5px 10px 5px 10px;
+    
+}
+
+@media screen and (max-width: 900px) {
+    .objeto-body-loop {
+        width: 100%;
+        flex-wrap: wrap;
+        padding-left: 0;
+        padding-right: 0;
+    } 
+    .col1 {
+        width: 100%;
+        height: 500px;
+        padding: 5px 10px 5px 10px;
+    }
+    
+    .col2 {
+        width: 100%;
+        padding: 5px 10px 5px 10px;
+      
+        
+    }
+
+    #forma-de-pagamento-banner {
+        width: 100%;
+    }
+
+    .rolagem {
+       height: 300px !important;
+       
+    }
+}
+
+
+
+
+.tarja-title {
+    margin: 0 auto;
+    height: 40px;
+    width: 90%;
+    color: black;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 20px;
+    vertical-align: middle;
+}
+
+#tarja-azul {
+    background-color: #cce5ff;
+}
+
+#tarja-verde {
+    background-color: #d4edda;
+}
+
+.sub-title-default {
+    font-size: 20px;
+    color: #094d66;
+}
+
+.sub-title-center  {
+    font-size: 20px;
+    font-weight: 700;
+    color: #094d66;
+}
+
+.lista-itens ul {
+    list-style-type: circle;
+    padding-left: 30px;
+}
+
+.sub-title-default {
+    font-size: 20px;
+    font-weight: 700;
+    color: #212931;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.form-application {
+    background-color: #26a744;
+    padding: 30px;
+    margin: 10px auto;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form-application > p {
+    color: white;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.form-application > h2 {
+    font-weight: bold;
+    color: white;
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+
+.input-ruge {
+    padding: 10px 15px 10px 15px;
+    margin-bottom: 5px;
+    width: 80%;
+    font-family: poppins;
+    border-radius: 10px;
+}
+
+#btn-cotas {
+    background-color: #fec900;
+    font-weight: 900;
+    color: white;
+    width: 90%;
+    padding: 10px 15px 10px 15px;
+    border: none;
+}
+
+/* GALERIA */
+
+/*
+.main-photo-gallery {
+    width: 90%;
+}
+
+figure img {
+    width: 100%;
+} */
+
+.rolagem {
+    padding: 10px;
+    height: 450px;
+    overflow: hidden;
+}
+
+
+.caixa-de-miniatura {
+    border: 1px solid #999;
+    width: 100px;
+    display: inline-block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 0px;
+    overflow: hidden;
+    height: 57px;
+}
+
+#miniaturas {
+    text-align: center;
+    /*position: fixed; */
+    bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0px;
+    right: 0px;
+    border-top: thin solid #757575;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #c2c1c1; 
+
+}
+
+a {
+    cursor: pointer;
+}
+
+.regras-sorteio {
+    font-size: 12px;
+    line-height: 22px;
+}
+
+.cotas-sorteio {
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
+}
+
+.number-sorteio {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cota-number {
+    border-style: solid;
+    border-color: #094d66;
+    border-width: 3px;
+    border-radius: 200px;
+    margin: 5px;
+    padding: 10px;
+    
+}
+
+#btn-pagamento {
+    background-color: #fec900;
+    font-weight: 900;
+    font-size: 30px;
+    color: white;
+    width: 90%;
+    padding: 15px 20px 15px 20px;
+    border: none;
+    border-radius: 30px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#btn-pagamento:hover {
+    transform: scale(1.1);
+}
+
+.dados-cliente {
+    display: flex;
+}
+
+.dados-cliente p {
+    font-size: 16px;
+}
+
+.dados-cliente h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #094d66;
+}
+
+.dados-cliente div {
+    padding: 10px;
+}
