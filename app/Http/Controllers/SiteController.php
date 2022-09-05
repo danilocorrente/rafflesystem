@@ -153,7 +153,7 @@ class SiteController extends Controller
                   );
         
                 $preference->external_reference =  $op->id;
-                $preference->notification_url = "https://hfpremios.com.br//webhook-mp";
+                $preference->notification_url = env('APP_URL')."/webhook-mp";
         
                     
                 $preference->save();
