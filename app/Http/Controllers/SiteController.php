@@ -166,7 +166,7 @@ class SiteController extends Controller
             if($cotas){
                 
                 foreach($cotas as $val){
-                    $asCotas .= str_pad($val, 5, "0", STR_PAD_LEFT).",";
+                    $asCotas .= str_pad($val, 5, "0", STR_PAD_LEFT)."\n";
                 }
             }
 
