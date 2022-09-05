@@ -162,22 +162,22 @@ class SiteController extends Controller
 
 
             $cotas = $numeros->pluck("NumeroDaRifa");
-            $asCotas = "";
-            if($cotas){
+            // $asCotas = "";
+            // if($cotas){
                 
-                foreach($cotas as $val){
-                    $asCotas .= str_pad($val, 5, "0", STR_PAD_LEFT)."\n";
-                }
-            }
+            //     foreach($cotas as $val){
+            //         $asCotas .= str_pad($val, 5, "0", STR_PAD_LEFT)."\n";
+            //     }
+            // }
 
-            $msgFormatada = "Boa noite, *{$op->nomeComprador}*,\n";
-            $msgFormatada .= "Segue as suas cotas do sorteio : *{$sorteio->nome_da_rifa}*\n";
-            $msgFormatada .= "🎟️ Cotas: \n{$asCotas}";
-            $msgFormatada .= "--------\n";
-            $msgFormatada .= "Uma boa sorte, qualquer dúvida acesse: \n";
-            $msgFormatada .= env("APP_URL");
-            $msgFormatada .= "\n\n _Este é um chat Automatizado da ferramenta, ele só serve para informativos ao consumidor_";
-            $this->sendWhatsMSG("55".$op->telefoneComprador, $msgFormatada);
+            // $msgFormatada = "Boa noite, *{$op->nomeComprador}*,\n";
+            // $msgFormatada .= "Segue as suas cotas do sorteio : *{$sorteio->nome_da_rifa}*\n";
+            // $msgFormatada .= "🎟️ Cotas: \n{$asCotas}";
+            // $msgFormatada .= "--------\n";
+            // $msgFormatada .= "Uma boa sorte, qualquer dúvida acesse: \n";
+            // $msgFormatada .= env("APP_URL");
+            // $msgFormatada .= "\n\n _Este é um chat Automatizado da ferramenta, ele só serve para informativos ao consumidor_";
+            // $this->sendWhatsMSG("55".$op->telefoneComprador, $msgFormatada);
 
 
 
@@ -210,6 +210,22 @@ class SiteController extends Controller
 
             
             
+            $asCotas = "";
+            if($res){
+                
+                foreach($res as $val){
+                    $asCotas .= str_pad($val, 5, "0", STR_PAD_LEFT)."\n";
+                }
+            }
+
+            $msgFormatada = "Boa noite, *{$op->nomeComprador}*,\n";
+            $msgFormatada .= "Segue as suas cotas do sorteio : *{$sorteio->nome_da_rifa}*\n";
+            $msgFormatada .= "🎟️ Cotas: \n{$asCotas}";
+            $msgFormatada .= "--------\n";
+            $msgFormatada .= "Uma boa sorte, qualquer dúvida acesse: \n";
+            $msgFormatada .= env("APP_URL");
+            $msgFormatada .= "\n\n _Este é um chat Automatizado da ferramenta, ele só serve para informativos ao consumidor_";
+            $this->sendWhatsMSG("55".$op->telefoneComprador, $msgFormatada);
 
             $this->composeEmail(array("nomeDestinatario" => $op->nomeComprador,"enviarPara" => $op->emailComprador,"assunto" => "#{$op->id} | Reserva de cotas ","layout" => "mails.pagamento_confirmado","info" => array("cotas" => $res->pluck("NumeroDaRifa"))));
 
