@@ -66,9 +66,9 @@ class SiteController extends Controller
         $op->quantidadeCotas = (int)$request->input("cotas");
         $op->cpfComprador = (int)preg_replace('/[^0-9]/', '', $request->input("cpf"));
         $op->emailComprador = $request->input("email");
-        $op->amountUnidade = (double)$rifa->valorRifa;
+        $op->amountUnidade = (double)$rifa->valor_da_cota;
         $op->nomeComprador = $request->input("nome");
-        $op->amount = (double)($rifa->valorRifa * $request->input('cotas'));
+        $op->amount = (double)($rifa->valor_da_cota * $request->input('cotas'));
         $op->status = "pendente";
         $op->limiteOP = Carbon::now()->addMinute(5)->format("Y-m-d H:i:s");
 
