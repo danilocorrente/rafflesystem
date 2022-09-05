@@ -175,7 +175,7 @@ class SiteController extends Controller
              🎟️ Cotas: ".$asCotas."
             
             Uma boa sorte, qualquer dúvida acesse: 
-            https://hfpremios.correnteam.com.br/
+            ".env("APP_URL")."
             
             _Este é um chat Automatizado da ferramenta, ele só serve para informativos ao consumidor_";
             $this->sendWhatsMSG("5511996440308", $msgFormatada);
