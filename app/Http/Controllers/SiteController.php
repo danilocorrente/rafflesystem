@@ -153,7 +153,7 @@ class SiteController extends Controller
                   );
         
                 $preference->external_reference =  $op->id;
-                $preference->notification_url = "https://sorteiolegaldf.com/webhook-mp";
+                $preference->notification_url = "https://hfpremios.com.br//webhook-mp";
         
                     
                 $preference->save();
@@ -165,6 +165,79 @@ class SiteController extends Controller
 
 
     }
+
+    public function webhookMP(Request $request){
+        MercadoPago\SDK::setAccessToken(env('PAGSEGURO_ACCESSTOKEN_HOMOLOG'));
+
+        $decode = json_decode($request->getContent(), true);
+        sleep(1);
+        
+        if(isset($decode['data']['id'])){
+            $item = MercadoPago\Payment::find_by_id($decode['data']['id']);
+
+            // Vamos corrigir os campos agora
+    
+            if($item->status == "approved"){
+                $op = OrdensPagamentoModel::findOrFail( preg_replace('/[^0-9]/', '', $item->external_reference));
+                $op->status="aprovada";
+                $op->save();
+                RifasComprada::where("idOP",$op->id)->where("status","reservado")->update(['status' => 'comprado']);
+            }
+
+            $res = RifasComprada::where("idOP",$op->id)->get();
+            $this->composeEmail(array("nomeDestinatario" => $op->nomeComprador,"enviarPara" => $op->emailComprador,"assunto" => "#{$op->id} | Reserva de cotas ","layout" => "mails.pagamento_confirmado","info" => array("cotas" => $res->pluck("NumeroDaRifa"))));
+
+        }
+
+        
+    }
+
+    public function composeEmail($request) {
+
+        // dd($request);
+
+        $info = $request;
+        
+        // echo "Fela?";
+        // dd($request);
+        $mail = new PHPMailer(true);
+            try {
+                //Server settings
+                $mail->SMTPDebug = false;                      //Enable verbose debug output
+                $mail->isSMTP();                                            //Send using SMTP
+                $mail->Host       = env('MAIL_IMAP');                     //Set the SMTP server to send through
+                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                $mail->Username   = env('MAIL_EMAIL');                     //SMTP username
+                $mail->Password   = env('MAIL_PASSWORD');                               //SMTP password
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+                $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                //Recipients
+                $mail->setFrom("automatico@sorteiolegaldf.com", "SorteioLegal");
+                $mail->addAddress($request['enviarPara'], $request['nomeDestinatario']);     //Add a recipient
+                $mail->addBCC('rifasdosite@sorteiolegaldf.com', 'Cópia das Rifas');
+                
+                
+
+                //Attachments
+                // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+                // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+
+                //Content
+                $mail->isHTML(true);                                  //Set email format to HTML
+                $mail->Subject = $request['assunto'];
+                $mail->Body    = view($request['layout'],compact('info'))->render();
+                // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+                $mail->send();
+                // echo 'Message has been sent';
+            } catch (Exception $e) {
+                Log::error("Falha de Envio de E-mail {$mail->ErrorInfo}");
+                // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            }
+
+        }
+
+
 
 
 

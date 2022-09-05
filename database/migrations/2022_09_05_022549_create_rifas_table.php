@@ -14,15 +14,15 @@ class CreateRifasTable extends Migration
     public function up()
     {
         Schema::create('rifas', function (Blueprint $table) {
-            $table->id();
-            $table->string("nome_da_rifa");
-            $table->string("descricao_curta");
-            $table->text("imagens_sorteio");
-            $table->text("descricao_completa");
+            $table->bigIncrements('id');
+            $table->string('nome_da_rifa');
+            $table->string('descricao_curta');
+            $table->text('imagens_sorteio');
+            $table->text('descricao_completa');
             $table->double('valor_da_cota', 8, 2);
-            $table->enum("status_rifa",["ativa","apurando","finalizada"]);
-            $table->enum("forma_da_rifa",["finalmanual","finalcomqtdcotas"]);
-            $table->bigInteger("fim_de_cotas")->nullable();
+            $table->enum('status_rifa', ['ativa', 'apurando', 'finalizada']);
+            $table->enum('forma_da_rifa', ['finalmanual', 'finalcomqtdcotas']);
+            $table->bigInteger('fim_de_cotas')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

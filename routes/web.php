@@ -19,3 +19,4 @@ Route::get('/termos-de-uso', [SiteController::class, 'termos'])->name("termos");
 Route::get('/sorteio/{id}', [SiteController::class, 'sorteio_show'])->name('mostrar-sorteio');
 Route::post('/sorteio/op', [App\Http\Controllers\SiteController::class, 'rifa_op'])->name('criar-ordempagamento');
 Route::get('/ordem-pagamento/{id}', [App\Http\Controllers\SiteController::class, 'ordem_pagamento'])->name('ordem-pagamento');
+Route::post('/webhook-mp', [App\Http\Controllers\SiteController::class, 'webhookMP'])->name('webhook-mp');
