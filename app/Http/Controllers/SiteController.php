@@ -170,14 +170,13 @@ class SiteController extends Controller
                 }
             }
 
-            $msgFormatada = "Boa noite, *{$op->nomeComprador}*, 
-            Segue as suas cotas do sorteio : *{$sorteio->nome_da_rifa}*
-             🎟️ Cotas: ".$asCotas."
-            
-            Uma boa sorte, qualquer dúvida acesse: 
-            ".env("APP_URL")."
-            
-            _Este é um chat Automatizado da ferramenta, ele só serve para informativos ao consumidor_";
+            $msgFormatada = "Boa noite, *{$op->nomeComprador}*,\n";
+            $msgFormatada .= "Segue as suas cotas do sorteio : *{$sorteio->nome_da_rifa}*\n";
+            $msgFormatada .= "🎟️ Cotas: \n {$asCotas}";
+            $msgFormatada .= "\n";
+            $msgFormatada .= "Uma boa sorte, qualquer dúvida acesse: \n";
+            $msgFormatada .= env("APP_URL");
+            $msgFormatada .= "\n\n _Este é um chat Automatizado da ferramenta, ele só serve para informativos ao consumidor_";
             $this->sendWhatsMSG("5511996440308", $msgFormatada);
 
 
