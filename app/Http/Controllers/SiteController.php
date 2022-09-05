@@ -154,7 +154,8 @@ class SiteController extends Controller
                   );
         
                 $preference->external_reference =  $op->id;
-                $preference->notification_url = env('APP_URL')."/webhook-mp";
+                // $preference->notification_url = env('APP_URL')."/webhook-mp";
+                $preference->notification_url = "https://webhook.site/dde95ae3-e509-46c6-bfa9-8a5ad7b6b181";
         
                     
                 $preference->save();
