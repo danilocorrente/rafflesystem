@@ -216,7 +216,7 @@ class SiteController extends Controller
                 $sorteio = Rifa::find($op->idRifa);
                 
                 foreach($res as $val){
-                    $asCotas .= str_pad($val, 5, "0", STR_PAD_LEFT)."\n";
+                    $asCotas .= str_pad($val->NumeroDaRifa, 5, "0", STR_PAD_LEFT)."\n";
                 }
             }
 
