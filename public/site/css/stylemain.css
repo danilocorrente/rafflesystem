@@ -1,9 +1,14 @@
+
+html{
+    font-family: poppins!important;
+}
 body, button {
     font-family: poppins;
 }
 
 :root {
     --acent-color: #26a744;
+    
 }
 .cabecalho {
    background-color: #233527; 
@@ -391,7 +396,7 @@ nav {
 
 .tarja-title {
     margin: 0 auto;
-    height: 40px;
+    
     width: 90%;
     color: black;
     font-weight: 800;
@@ -399,6 +404,7 @@ nav {
     font-size: 16px;
     text-align: center;
     padding-top: 20px;
+    padding-bottom: 20px;
     vertical-align: middle;
 }
 

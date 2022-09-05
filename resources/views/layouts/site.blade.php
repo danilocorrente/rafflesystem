@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{config('app.name')}} | @yield('title')</title>
     <link rel="stylesheet" type="text/css" href="{{asset('/site/css/reset.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset('/site/bootstrap/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('/site/bootstrap/css/bootstrap.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('/site/css/stylemain.css')}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="">
@@ -110,6 +111,8 @@
 
     <script src="{{asset('site/plugins/jquery/jquery-3.6.1.min.js')}}"></script>
     <script src="{{asset('site/plugins/dosite/functions.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    @yield('jquery')
 </body>
 
 </html>

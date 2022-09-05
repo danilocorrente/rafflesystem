@@ -26,7 +26,7 @@
                                     Compre sua cota!
                                 </p>
 
-                                <button class="btn-comprar-cota">COMPRAR COTA</button>
+                                <button onclick="location.href='{{route('mostrar-sorteio',$rifa->id)}}';" class="btn-comprar-cota">COMPRAR COTA</button>
                             </div>
                         </article>
                         @endforeach
