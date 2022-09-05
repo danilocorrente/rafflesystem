@@ -159,8 +159,8 @@ class SiteController extends Controller
                 $preference->save();
             }
 
-            $this->sendWhatsMSG("5511996440308", "Ola");
-            
+            $this->sendWhatsMSG("11996440308", "Ola");
+
 
 
         return view('site.pagamento', compact('op','sorteio','preference','numeros'));
