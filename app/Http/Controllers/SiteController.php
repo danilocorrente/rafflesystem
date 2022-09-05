@@ -167,6 +167,8 @@ class SiteController extends Controller
     }
 
     public function webhookMP(Request $request){
+
+        Log::info($request);
         MercadoPago\SDK::setAccessToken(env('PAGSEGURO_ACCESSTOKEN_HOMOLOG'));
 
         $decode = json_decode($request->getContent(), true);
