@@ -160,7 +160,7 @@ class SiteController extends Controller
                 $preference->save();
             }
 
-            $this->sendWhatsMSG("11996440308", "Ola");
+            $this->sendWhatsMSG("5511996440308", "Ola");
 
 
 
@@ -264,8 +264,7 @@ class SiteController extends Controller
               // dd($res);
     
             } catch (\Throwable $th) {
-              dd($th);
-              Log::warning($th);
+              Log::error($th);
             }
           }
 
