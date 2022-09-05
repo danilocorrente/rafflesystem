@@ -213,6 +213,7 @@ class SiteController extends Controller
             
             $asCotas = "";
             if($res){
+                $sorteio = Rifa::find($res->idRifa);
                 
                 foreach($res as $val){
                     $asCotas .= str_pad($val, 5, "0", STR_PAD_LEFT)."\n";
