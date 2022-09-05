@@ -10,6 +10,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use MercadoPago;
 use GuzzleHttp\Client;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 use GuzzleHttp\Psr7\Request as GuzzleRequest;
 class SiteController extends Controller
 {
