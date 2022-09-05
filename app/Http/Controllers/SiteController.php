@@ -121,13 +121,23 @@ class SiteController extends Controller
 
     
     public function ordem_pagamento(Request $request){
+
+
         $op = OrdensPagamentoModel::findOrFail($request->id);
         $numeros = RifasComprada::where("idOP",$request->id)->get();
         $preference = "";
             if($op->status != "aprovado"){
                 MercadoPago\SDK::setAccessToken(env('MERCADOPAGO_ACCESSTOKEN'));
                 $preference = new MercadoPago\Preference();
-                $rifa = Rifa::findOrFail($op->idRifa);
+                $sorteio = Rifa::findOrFail($op->idRifa)->toArray();
+
+                // dd($sorteio);
+                if(count($sorteio['imagens_sorteio']) < 4){
+                    for ($i=0; $i <= (4 - count($sorteio['imagens_sorteio'])); $i++) { 
+                        array_push($sorteio['imagens_sorteio'],$sorteio['imagens_sorteio'][array_rand($sorteio['imagens_sorteio'])]);
+                    }
+                }
+                $sorteio = (object) $sorteio;
         
                 // Cria um item na preferência
                 $item = new MercadoPago\Item();
@@ -151,7 +161,7 @@ class SiteController extends Controller
 
 
 
-        return view('site.op', compact('op','rifa','preference','numeros'));
+        return view('site.pagamento', compact('op','sorteio','preference','numeros'));
 
 
     }

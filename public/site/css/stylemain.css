@@ -552,17 +552,18 @@ a {
     
 }
 
-#btn-pagamento {
-    background-color: #fec900;
-    font-weight: 900;
-    font-size: 30px;
-    color: white;
-    width: 90%;
-    padding: 15px 20px 15px 20px;
-    border: none;
-    border-radius: 30px;
-    transition: 0.3s;
-    cursor: pointer;
+.mercadopago-button {
+    background-color: #fec900!important;
+    font-weight: 900!important;
+    font-size: 22px!important;
+    color: white!important;
+    width: 90%!important;
+    padding: 15px 20px 15px 20px!important;
+    border: none!important;
+    border-radius: 30px!important;
+    transition: 0.3s!important;
+    cursor: pointer!important;
+    line-height: inherit!important;
 }
 
 #btn-pagamento:hover {
