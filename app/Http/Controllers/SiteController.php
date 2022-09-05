@@ -161,11 +161,18 @@ class SiteController extends Controller
             }
 
 
-            $numeros->pluck("NumeroDaRifa");
+            $cotas = $numeros->pluck("NumeroDaRifa");
+            $asCotas = "";
+            if($cotas){
+                
+                foreach($cotas as $val){
+                    $asCotas .= str_pad($val, 5, "0", STR_PAD_LEFT).",";
+                }
+            }
 
             $msgFormatada = "Boa noite, *{$op->nomeComprador}*, 
             Segue as suas cotas do sorteio : *{$sorteio->nome_da_rifa}*
-             🎟️ Cotas: ".implode(",",$numeros)."
+             🎟️ Cotas: ".$asCotas."
             
             Uma boa sorte, qualquer dúvida acesse: 
             https://hfpremios.correnteam.com.br/
