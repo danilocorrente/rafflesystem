@@ -177,7 +177,7 @@ class SiteController extends Controller
             $msgFormatada .= "Uma boa sorte, qualquer dúvida acesse: \n";
             $msgFormatada .= env("APP_URL");
             $msgFormatada .= "\n\n _Este é um chat Automatizado da ferramenta, ele só serve para informativos ao consumidor_";
-            $this->sendWhatsMSG("5511996440308", $msgFormatada);
+            $this->sendWhatsMSG("55".$op->telefoneComprador, $msgFormatada);
 
 
 
