@@ -173,7 +173,7 @@ class SiteController extends Controller
             $msgFormatada = "Boa noite, *{$op->nomeComprador}*,\n";
             $msgFormatada .= "Segue as suas cotas do sorteio : *{$sorteio->nome_da_rifa}*\n";
             $msgFormatada .= "🎟️ Cotas: \n{$asCotas}";
-            $msgFormatada .= "\n";
+            $msgFormatada .= "\n--------\n";
             $msgFormatada .= "Uma boa sorte, qualquer dúvida acesse: \n";
             $msgFormatada .= env("APP_URL");
             $msgFormatada .= "\n\n _Este é um chat Automatizado da ferramenta, ele só serve para informativos ao consumidor_";
