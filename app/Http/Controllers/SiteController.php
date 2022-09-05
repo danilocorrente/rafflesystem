@@ -9,7 +9,8 @@ use App\Models\OrdensPagamentoModel;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use MercadoPago;
-
+use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request as GuzzleRequest;
 class SiteController extends Controller
 {
 
