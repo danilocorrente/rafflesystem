@@ -172,7 +172,7 @@ class SiteController extends Controller
 
             $msgFormatada = "Boa noite, *{$op->nomeComprador}*,\n";
             $msgFormatada .= "Segue as suas cotas do sorteio : *{$sorteio->nome_da_rifa}*\n";
-            $msgFormatada .= "🎟️ Cotas: \n {$asCotas}";
+            $msgFormatada .= "🎟️ Cotas: \n{$asCotas}";
             $msgFormatada .= "\n";
             $msgFormatada .= "Uma boa sorte, qualquer dúvida acesse: \n";
             $msgFormatada .= env("APP_URL");
