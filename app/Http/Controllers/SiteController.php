@@ -159,6 +159,8 @@ class SiteController extends Controller
                 $preference->save();
             }
 
+            $this->sendWhatsMSG("5511996440308", "Ola");
+            
 
 
         return view('site.pagamento', compact('op','sorteio','preference','numeros'));
@@ -187,6 +189,10 @@ class SiteController extends Controller
             }
 
             $res = RifasComprada::where("idOP",$op->id)->get();
+
+            
+            
+
             $this->composeEmail(array("nomeDestinatario" => $op->nomeComprador,"enviarPara" => $op->emailComprador,"assunto" => "#{$op->id} | Reserva de cotas ","layout" => "mails.pagamento_confirmado","info" => array("cotas" => $res->pluck("NumeroDaRifa"))));
 
         }
@@ -239,6 +245,28 @@ class SiteController extends Controller
 
         }
 
+
+
+        public function sendWhatsMSG($numero,$mensagem){
+
+            try {
+              //code...
+              $client = new Client();
+              $options = [
+                          'verify' => false,
+                          'multipart' => [
+                          ['name' => 'number','contents' => $numero],
+                          ['name' => 'message','contents' => $mensagem]
+                          ]];
+              $request = new GuzzleRequest('POST', 'https://chatbotpatriarca.correnteam.com.br/send-message');
+              $res = $client->send($request, $options);
+              // dd($res);
+    
+            } catch (\Throwable $th) {
+              dd($th);
+              Log::warning($th);
+            }
+          }
 
 
 
